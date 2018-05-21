@@ -1,0 +1,37 @@
+{
+  "devicesImport" : {
+    "devices" : {
+      "device" : [ 
+        {% for IP in ip_list %}
+            {
+            "cliEnablePassword": "",
+            "cliPassword": "ADD YOURS",
+            "cliTimeout": "60",
+            "cliUsername": "ADD YOURS",
+            "credentialProfileName": "ADD YOURS",
+            "httpConfigPassword": "",
+            "httpConfigUsername": "",
+            "httpMonitorPassword": "",
+            "httpMonitorUsername": "",
+            "httpPort": "80",
+            "httpServer": "http",
+            "ipAddress": "{{IP}}",
+            "protocol": "ssh2",
+            "snmpPort": "161",
+            "snmpRetries": "2",
+            "snmpTimeout": "10",
+            "snmpVersion": "3",
+            "snmpv3AuthPassword": "ADD YOURS",
+            "snmpv3AuthType": "ADD YOURS",
+            "snmpv3PrivacyPassword": "ADD YOURS",
+            "snmpv3PrivacyType": "ADD YOURS",
+            "snmpv3UserName": "ADD YOURS"
+            }
+            {%- if not loop.last -%} 
+              ,      
+            {% endif %}
+      {% endfor %}
+      ]
+    }
+  }
+}
